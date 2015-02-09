@@ -30,7 +30,7 @@ Puppet::Type.newtype(:mysql_user) do
     end
 
     munge do |value|
-      matches = /^((['`"]?).*\2)@([\w%\.:\-]+)/.match(value)
+      matches = /^((['`"]?).*\2)@([\w%\.:\-\/]+)/.match(value)
       "#{matches[1]}@#{matches[3].downcase}"
     end
   end
